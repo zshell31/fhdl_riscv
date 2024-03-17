@@ -1,0 +1,3 @@
+# RUSTUP_TOOLCHAIN=nightly-2024-03-14 RUSTC_FLAGS="-Z always-encode-mir -Z mir-opt-level=1 -C panic=abort -C overflow-checks" xargo --help
+[target.x86_64-unknown-linux-gnu.dependencies.std]
+features = ["panic-unwind"]

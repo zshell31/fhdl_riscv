@@ -1,0 +1,11 @@
+[package]
+name = "fhdl_riscv"
+version = "0.1.0"
+edition = "2021"
+description = "Port of schoolRISCV (https://github.com/zhelnio/schoolRISCV)"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+derive-where = "1.2.5"
+ferrum_hdl = { path = "../ferrum_hdl" }
