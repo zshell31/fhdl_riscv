@@ -9,3 +9,6 @@ description = "Port of schoolRISCV (https://github.com/zhelnio/schoolRISCV)"
 [dependencies]
 derive-where = "1.2.5"
 ferrum_hdl = { path = "../ferrum_hdl" }
+
+[dev-dependencies]
+rubbler = "0.1.2"

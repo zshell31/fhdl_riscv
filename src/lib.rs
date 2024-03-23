@@ -9,12 +9,14 @@ pub mod alu;
 pub mod decoder;
 pub mod types;
 
+use alu::AluControl;
 use decoder::Decoded;
 use ferrum_hdl::prelude::*;
 use types::Instr;
 
 pub type Dom = TD4;
 
-pub fn top(instr: Instr) -> Decoded {
-    Decoded::decode(&instr)
+pub fn top(instr: Instr) -> AluControl {
+    let d = Decoded::decode(&instr);
+    AluControl::init(d.decoded, false)
 }

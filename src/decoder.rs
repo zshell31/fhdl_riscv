@@ -17,7 +17,7 @@ pub struct InstrR {
     // 11:7
     pub rd: Reg,
     // 6:0
-    pub op_code: OpCode,
+    pub code: OpCode,
 }
 
 #[derive(Debug, Clone, SignalValue, Traceable)]
@@ -32,11 +32,9 @@ impl Decoded {
     pub fn decode(instr: &Instr) -> Self {
         let decoded = instr.repack();
 
-        let imm_i = bits!(instr[31:20]).cast::<S<12>>().sign_extend();
-        let imm_b = bits!(instr[31, 7, 30:25, 11:8])
-            .repack::<S<_>>()
-            .sign_extend();
-        let imm_u = bits!(instr[31:12, L:12]).repack();
+        let imm_i = bits!(instr[31..20] as S<12>).sign_extend();
+        let imm_b = bits!(instr[31, 7, 30..25, 11..8] as S<12>).sign_extend();
+        let imm_u = bits!(instr[31..12], [L; 12]);
 
         Self {
             decoded,
